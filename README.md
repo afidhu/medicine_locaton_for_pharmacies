@@ -1,0 +1,2 @@
+# medicine_locaton_for_pharmacies
+medicine_locaton_for_pharmacies is application
