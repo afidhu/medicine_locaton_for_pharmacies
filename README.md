@@ -135,5 +135,9 @@ Contributions are welcome!
 Please follow **Clean Architecture principles** and ensure all new features are covered by **appropriate tests**.
 
 ---
+## 🎨 Figma Design
+
+Check out the UI/UX design here: **[Figma Link](https://www.figma.com/make/wy44pCvHlPrWHtN0AqObRr/Centralized-Medicine-Locator-App?p=f&t=GbNlbVabLDmKI4Rp-0)**
+
 
 ✨ *Built to improve access to essential medicines in urban areas.*
