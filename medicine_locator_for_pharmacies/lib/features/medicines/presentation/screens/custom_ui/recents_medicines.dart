@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
 import '../medicine_details.dart';
+import '../medicine_search_results.dart';
 
 class RecentsMedicines extends StatelessWidget {
   const RecentsMedicines({super.key});
@@ -18,7 +19,7 @@ class RecentsMedicines extends StatelessWidget {
               (context, index) {
             return InkWell(
               onTap: (){
-                Get.to(()=>MedicineDetails());
+                Get.to(()=>MedicineSearchResults());
               },
               child: Container(
                 margin: EdgeInsets.all(2.sp),

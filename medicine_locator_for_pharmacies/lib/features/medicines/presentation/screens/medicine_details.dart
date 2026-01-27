@@ -12,6 +12,7 @@ class _MedicineDetailsState extends State<MedicineDetails> {
   Widget build(BuildContext context) {
     return SafeArea(child:
     Scaffold(
+      appBar: AppBar(),
       body: Text('data'),
     ));
   }
