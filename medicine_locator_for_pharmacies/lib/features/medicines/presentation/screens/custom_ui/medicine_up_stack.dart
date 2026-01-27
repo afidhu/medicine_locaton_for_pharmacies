@@ -3,18 +3,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../widgets/text_input.dart';
-class StackUp extends StatefulWidget {
-  const StackUp({super.key});
+import '../../widgets/text_input_search.dart';
+class MedicineUpStack extends StatefulWidget {
+  const MedicineUpStack({super.key});
 
   @override
-  State<StackUp> createState() => _StackUpState();
+  State<MedicineUpStack> createState() => _MedicineUpStackState();
 }
 
-class _StackUpState extends State<StackUp> {
+class _MedicineUpStackState extends State<MedicineUpStack> {
   @override
   Widget build(BuildContext context) {
-    return  SliverPadding(padding: EdgeInsets.all(0.8.sp),
+    return SliverPadding(padding: EdgeInsets.all(0.8.sp),
       sliver:SliverToBoxAdapter(
           child:  SizedBox(
             height: 250.h,
@@ -66,10 +66,10 @@ class _StackUpState extends State<StackUp> {
                 ),
 
                 Positioned(
-                  top:70.h,
-                  left: 0,
-                  right: 0,
-                  child:  TextInput()
+                    top:70.h,
+                    left: 0,
+                    right: 0,
+                    child:  TextInputSearch()
                 ),
                 Positioned(
                   top: 130.h,
