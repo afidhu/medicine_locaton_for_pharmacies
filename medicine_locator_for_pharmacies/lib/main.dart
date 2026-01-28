@@ -4,6 +4,7 @@ import 'package:get/get_navigation/src/root/get_material_app.dart';
 
 import 'core/screens/home_bottom_nav.dart';
 import 'core/screens/home_screen.dart';
+import 'core/screens/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -23,8 +24,8 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         ),
-        home: HomeBottomNav()
-        // home: HomeScreen()
+        // home: HomeBottomNav()
+        home: SplashScreen()
       ),
     );
   }

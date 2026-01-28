@@ -5,6 +5,17 @@ plugins {
     id("dev.flutter.flutter-gradle-plugin")
 }
 
+import java.util.Properties
+
+val localProperties = Properties()
+val localPropertiesFile = rootProject.file("local.properties")
+if (localPropertiesFile.exists()) {
+    localPropertiesFile.inputStream().use {
+        localProperties.load(it)
+    }
+}
+
+val googleMapsApiKey: String = localProperties["GOOGLE_MAPS_API_KEY"] as String
 android {
     namespace = "com.example.medicine_locator_for_pharmacies"
     compileSdk = flutter.compileSdkVersion
@@ -28,6 +39,8 @@ android {
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
+        manifestPlaceholders["GOOGLE_MAPS_API_KEY"] = googleMapsApiKey
+
     }
 
     buildTypes {
