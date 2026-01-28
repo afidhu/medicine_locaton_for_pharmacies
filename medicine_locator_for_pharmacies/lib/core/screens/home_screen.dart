@@ -16,10 +16,10 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: Colors.grey[300],
-        body:CustomScrollView(
+    return  Scaffold(
+      backgroundColor: Colors.grey[300],
+      body: SafeArea (
+        child:CustomScrollView(
           slivers: [
             MedicineUpStack(),
 
