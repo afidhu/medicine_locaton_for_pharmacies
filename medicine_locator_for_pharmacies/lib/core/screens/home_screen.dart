@@ -12,7 +12,7 @@ class HomeScreen extends StatefulWidget {
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
-
+// 'Pharmancies \n Available'
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
@@ -36,6 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   )
               ),
             ),
+
             RecentsMedicines(),
 
             QuickFindNow()

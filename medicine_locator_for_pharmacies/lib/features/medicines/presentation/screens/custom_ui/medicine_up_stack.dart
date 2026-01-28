@@ -1,17 +1,19 @@
 
 
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:medicine_locator_for_pharmacies/core/screens/custom_ui/counts_cards.dart';
 
+import '../../../../../core/screens/custom_ui/container_card.dart';
 import '../../widgets/text_input_search.dart';
-class MedicineUpStack extends StatefulWidget {
+class MedicineUpStack extends StatelessWidget {
+
+
+
   const MedicineUpStack({super.key});
 
-  @override
-  State<MedicineUpStack> createState() => _MedicineUpStackState();
-}
-
-class _MedicineUpStackState extends State<MedicineUpStack> {
   @override
   Widget build(BuildContext context) {
     return SliverPadding(padding: EdgeInsets.all(0.8.sp),
@@ -22,23 +24,7 @@ class _MedicineUpStackState extends State<MedicineUpStack> {
             child: Stack(
               fit: StackFit.loose,
               children: [
-                Container(
-                    width: double.infinity,
-                    height: 200.h,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(20),
-                        bottomRight: Radius.circular(20),
-                      ),
-                      gradient: LinearGradient(
-                        colors: [
-                          Colors.blue,
-                          // Colors.,
-                          Colors.teal,
-                        ],
-                      ),
-                    )
-                ),
+                ContainerCard(),
                 Positioned(
                     top: 10.h,
                     left: 0,
@@ -71,61 +57,8 @@ class _MedicineUpStackState extends State<MedicineUpStack> {
                     right: 0,
                     child:  TextInputSearch()
                 ),
-                Positioned(
-                  top: 130.h,
-                  left: 0,
-                  right: 0,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      SizedBox(
-                        width: 100.w,
-                        height: 110.h,
-                        child:    Card(
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Container(
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(20),
-                                      color: Colors.green[100]
-                                  ),
-                                  child: Icon(Icons.local_hospital_outlined,size: 20.sp,),
-                                ),
-                                SizedBox(height: 10.h,),
-                                Text('390',style: TextStyle(fontSize: 10.sp, fontWeight: FontWeight.bold),),
-                                SizedBox(height: 10.h,),
-                                Text('Pharmancies \n Available')
-                              ],
-                            )
-                        ),
-                      ),SizedBox(
-                        width: 100.w,
-                        height: 110.h,
-                        child:    Card(
-                            color: Colors.white,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Container(
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(20),
-                                      color: Colors.green[100]
-                                  ),
-                                  child: Icon(Icons.medical_information,size: 20.sp,),
-                                ),
-                                SizedBox(height: 10.h,),
-                                Text('2.4K+',style: TextStyle(fontSize: 10.sp, fontWeight: FontWeight.bold),),
-                                SizedBox(height: 10.h,),
-                                Text('Medicines \n Available')
-                              ],
-                            )
-                        ),
-                      ),
 
-                    ],
-                  ),
-                ),
+                CountsCards(icon: Icons.local_hospital_outlined, counts: 402, text: 'Pharmancies \n Available', icon2: Icons.medical_information, counts2: 2400, text2: 'Medicines \n Available' )
               ],
             ),
           )
