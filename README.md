@@ -135,7 +135,10 @@ Contributions are welcome!
 Please follow **Clean Architecture principles** and ensure all new features are covered by **appropriate tests**.
 
 ---
+
+
 ## 🎨 Figma Design 
+
 
 Check out the UI/UX design here: **[Figma Link](https://dark-tacit-86143187.figma.site)**
 

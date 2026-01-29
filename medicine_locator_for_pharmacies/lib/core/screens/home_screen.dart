@@ -12,14 +12,14 @@ class HomeScreen extends StatefulWidget {
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
-
+// 'Pharmancies \n Available'
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: Colors.grey[300],
-        body:CustomScrollView(
+    return  Scaffold(
+      backgroundColor: Colors.grey[300],
+      body: SafeArea (
+        child:CustomScrollView(
           slivers: [
             MedicineUpStack(),
 
@@ -36,6 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   )
               ),
             ),
+
             RecentsMedicines(),
 
             QuickFindNow()
