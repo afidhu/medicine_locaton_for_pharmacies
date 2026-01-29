@@ -2,6 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../widgets/input_text.dart';
+
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
@@ -56,38 +58,25 @@ class _LoginScreenState extends State<LoginScreen> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
-                         TextFormField(
-                               obscureText: true,
-                               decoration: InputDecoration(
-                                 border: OutlineInputBorder(
-                                   borderRadius: BorderRadius.circular(10.r),
-                                   // borderSide: BorderSide.none
-                                 ),
-                                 hintText: 'Enter Password',
-                                 helperText: 'Password',
-                                 hintStyle: TextStyle(
-                                   fontSize: 10.sp,
-                                   fontWeight: FontWeight.bold
-                                 )
-                               ),
-                             ),
+                            inputText(Inputs(hintText: 'Enter password', helperText: 'enter Password', isPassword: true, keyboardType: TextInputType.visiblePassword, icon: Icons.password_outlined)),
+                            inputText(Inputs(hintText: 'Enter Email', helperText: 'enter Email', keyboardType: TextInputType.emailAddress, icon: Icons.email_outlined)),
 
-                            TextFormField(
-                               keyboardType: TextInputType.emailAddress,
-                               decoration: InputDecoration(
-                                 border: OutlineInputBorder(
-                                   borderRadius: BorderRadius.circular(10.r),
-                                   // borderSide: BorderSide.none
-                                 ),
-                                   hintText: 'Enter Email',
-                                 helperText: 'Email',
-                                 hintStyle: TextStyle(
-                                   fontSize: 10.sp,
-                                   fontWeight: FontWeight.bold
-                                 )
-                               ),
-
-                             ),
+                            // TextFormField(
+                            //    keyboardType: TextInputType.emailAddress,
+                            //    decoration: InputDecoration(
+                            //      border: OutlineInputBorder(
+                            //        borderRadius: BorderRadius.circular(10.r),
+                            //        // borderSide: BorderSide.none
+                            //      ),
+                            //        hintText: 'Enter Email',
+                            //      helperText: 'Email',
+                            //      hintStyle: TextStyle(
+                            //        fontSize: 10.sp,
+                            //        fontWeight: FontWeight.bold
+                            //      )
+                            //    ),
+                            //
+                            //  ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: [
@@ -116,4 +105,7 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
     );
   }
+
 }
+
+
