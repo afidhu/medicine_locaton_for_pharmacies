@@ -14,21 +14,23 @@ class Inputs{
 }
 
 Widget inputText(Inputs inputs){
-  return    TextFormField(
-    obscureText:inputs.isPassword,
-    keyboardType: inputs.keyboardType,
-    decoration: InputDecoration(
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10.r),
-          // borderSide: BorderSide.none
-        ),
-        hintText:inputs.hintText,
-        helperText:inputs.helperText,
-        prefixIcon: Icon(inputs.icon),
-        hintStyle: TextStyle(
-            fontSize: 10.sp,
-            fontWeight: FontWeight.bold
-        )
+  return    Expanded(
+    child: TextFormField(
+      obscureText:inputs.isPassword,
+      keyboardType: inputs.keyboardType,
+      decoration: InputDecoration(
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10.r),
+            // borderSide: BorderSide.none
+          ),
+          hintText:inputs.hintText,
+          helperText:inputs.helperText,
+          prefixIcon: Icon(inputs.icon),
+          hintStyle: TextStyle(
+              fontSize: 10.sp,
+              fontWeight: FontWeight.bold
+          )
+      ),
     ),
   );
 }

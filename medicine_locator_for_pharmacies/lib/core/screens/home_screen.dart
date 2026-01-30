@@ -21,6 +21,7 @@ class _HomeScreenState extends State<HomeScreen> {
       body: SafeArea (
         child:CustomScrollView(
           slivers: [
+
             MedicineUpStack(),
 
             SliverPadding(padding: EdgeInsets.all(0.8.sp),

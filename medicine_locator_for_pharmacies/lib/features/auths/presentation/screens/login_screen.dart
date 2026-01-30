@@ -20,13 +20,15 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       backgroundColor: Colors.grey[300],
       body: SafeArea(
-          child: Center(
+          child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
                   height: 80.h,
                   width: 80.w,
+                  margin: EdgeInsets.all(10.r),
+                  padding: EdgeInsets.all(10.r),
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(10.r),
@@ -40,8 +42,8 @@ class _LoginScreenState extends State<LoginScreen> {
                 SizedBox(height: 10.h),
 
                 Container(
-                  width: 230.w,
-                  height: 200.h,
+                  width: double.infinity,
+                  height: 160.h,
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(10.r),
