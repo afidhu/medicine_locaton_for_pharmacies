@@ -47,7 +47,7 @@ class RecentsMedicines extends StatelessWidget {
               ),
             );
           },
-          childCount: 5,
+          childCount: 15,
         ),
       ),
     );
