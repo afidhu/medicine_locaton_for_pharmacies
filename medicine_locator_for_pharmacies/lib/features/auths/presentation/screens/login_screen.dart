@@ -1,7 +1,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
+import '../../../pharmacy/presentation/screens/pharmacist_home.dart';
 import '../widgets/input_text.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -92,7 +95,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                   Colors.green,
                                   Colors.blue
                                 ])
-                              ), child: OutlinedButton(onPressed: (){}, child: Text('Login')))
+                              ), child: OutlinedButton(onPressed: (){
+                                Get.to(()=>PharmacistHome());
+                            }, child: Text('Login')))
                           ],
                         ),
                     ),
