@@ -24,7 +24,7 @@ class MedicineUpStack extends StatelessWidget {
             child: Stack(
               fit: StackFit.loose,
               children: [
-                ContainerCard(),
+                ContainerCard(containerHeight: 180,),
                 Positioned(
                     top: 10.h,
                     left: 0,
@@ -58,7 +58,7 @@ class MedicineUpStack extends StatelessWidget {
                     child:  TextInputSearch()
                 ),
 
-                CountsCards(icon: Icons.local_hospital_outlined, counts: 402, text: 'Pharmancies \n Available', icon2: Icons.medical_information, counts2: 2400, text2: 'Medicines \n Available' )
+                CountsCards(icon: Icons.local_hospital_outlined, counts: 402, text: 'Pharmancies \n Available', icon2: Icons.medical_information, counts2: 2400, text2: 'Medicines \n Available',positionedTop: 130, )
               ],
             ),
           )
