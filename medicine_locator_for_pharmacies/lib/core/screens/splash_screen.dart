@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
@@ -18,8 +19,33 @@ class SplashScreen extends StatelessWidget {
               shrinkWrap: true,
               padding: const EdgeInsets.all(8),
               children: [
-                OutlinedButton(onPressed: (){Get.to(()=>HomeScreen());}, child: Text('Patient')),
-                OutlinedButton(onPressed: (){Get.to(()=>LoginScreen());}, child: Text('Pharmacist')),
+                Align(
+                  alignment: Alignment.center,
+                    child: Container(
+                      margin: EdgeInsets.all(10.r),
+                      padding: EdgeInsets.all(10.r),
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(colors: [
+                          Colors.green,
+                          Colors.red,
+                          Colors.blue
+                        ]),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                        child: Text('Pharmacy System',style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold,color: Colors.white),))),
+                SizedBox(height: 20.h,),
+
+                OutlinedButton(
+                  onPressed: (){Get.to(()=>HomeScreen());}, child: Text('Patient',style: TextStyle(color: Colors.white)  ,),
+                  style: OutlinedButton.styleFrom(
+                    side: BorderSide(color: Colors.blue),
+                    backgroundColor: Colors.blue
+                  ),
+                ),
+                OutlinedButton(onPressed: (){Get.to(()=>LoginScreen());}, style: OutlinedButton.styleFrom(
+                    side: BorderSide(color: Colors.blue),
+                    backgroundColor: Colors.blue
+                ), child: Text('Pharmacist',style: TextStyle(color: Colors.white))),
                 OutlinedButton(onPressed: (){}, child: Text('Admin')),
               ],
             ),
