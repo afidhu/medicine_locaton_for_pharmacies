@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
+import '../../features/admin/presentation/screens/admin_home_screen.dart';
 import '../../features/auths/presentation/screens/login_screen.dart';
 import 'home_screen.dart';
 
@@ -46,7 +47,13 @@ class SplashScreen extends StatelessWidget {
                     side: BorderSide(color: Colors.blue),
                     backgroundColor: Colors.blue
                 ), child: Text('Pharmacist',style: TextStyle(color: Colors.white))),
-                OutlinedButton(onPressed: (){}, child: Text('Admin')),
+                OutlinedButton(
+                  style: OutlinedButton.styleFrom(
+                      side: BorderSide(color: Colors.blue),
+                      backgroundColor: Colors.purpleAccent
+                  )
+                ,
+                    onPressed: (){Get.to(()=>AdminHomeScreen());}, child: Text('Admin')),
               ],
             ),
           )
