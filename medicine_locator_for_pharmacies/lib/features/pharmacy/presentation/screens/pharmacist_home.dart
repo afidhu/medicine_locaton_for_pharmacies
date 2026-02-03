@@ -30,6 +30,7 @@ class _PharmacistHomeState extends State<PharmacistHome> {
                   text1: 'HealthPlus Pharmacy',
                   text2: 'Pharmacist Dashboard',
                   text3: 'Total Medicines',
+                  text4: 'Available',
                   icon1: Icons.store,
                   icon2: Icons.local_hospital_outlined,
                   icon3: Icons.medical_information,
