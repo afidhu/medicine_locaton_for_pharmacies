@@ -3,11 +3,17 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class PharmacyMedicinesCard extends StatelessWidget {
+class PharmacyMedicinesCard extends StatefulWidget {
   const PharmacyMedicinesCard({
     super.key,
   });
 
+  @override
+  State<PharmacyMedicinesCard> createState() => _PharmacyMedicinesCardState();
+}
+
+class _PharmacyMedicinesCardState extends State<PharmacyMedicinesCard> {
+  var isAvailable =false;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -33,7 +39,9 @@ class PharmacyMedicinesCard extends StatelessWidget {
               Text('Paracetamol 500mg',style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12.sp ),),
               Spacer(),
               Text('Available'),
-              Switch(value: false, onChanged: (val){},activeColor: Colors.green,activeTrackColor: Colors.green[111],inactiveTrackColor: Colors.red,inactiveThumbColor: Colors.white,)
+              Switch(value: isAvailable, onChanged: (val){setState(() {
+                isAvailable =!isAvailable;
+              });},activeColor: Colors.green,activeTrackColor: Colors.green[111],inactiveTrackColor: Colors.red,inactiveThumbColor: Colors.white,)
             ],
           ),
 

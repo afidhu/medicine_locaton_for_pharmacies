@@ -25,7 +25,7 @@ class CountsCards extends StatelessWidget {
         children: [
           SizedBox(
             width: 100.w,
-            height: 110.h,
+            height: 100.h,
             child:    Card(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -46,7 +46,7 @@ class CountsCards extends StatelessWidget {
             ),
           ),SizedBox(
             width: 100.w,
-            height: 110.h,
+            height: 100.h,
             child:    Card(
                 color: Colors.white,
                 child: Column(
