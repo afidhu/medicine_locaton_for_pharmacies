@@ -15,16 +15,31 @@ class _AllMedicinesState extends State<AllMedicines> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[100],
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text('Select medicines',style: TextStyle(color: Colors.black,)),
+        actions: [
+          TextButton.icon(onPressed: (){}, label: Text('Save'),
+            style: TextButton.styleFrom(
+              backgroundColor: Colors.green,
+              foregroundColor: Colors.white,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10)
+              )
+            )
+          ),
+          const SizedBox(width: 10,)
+        ],
+      ),
       body: SafeArea(
           child: Container(
+            width: double.infinity,
+            height: double.infinity,
             child: DraggableScrollableSheet(
-                initialChildSize: 0.2.h,
+                initialChildSize: 0.4.h,
                 minChildSize: 0.2.h,
-                maxChildSize: 1
-                ,expand: true
-                ,snapSizes: [0.5,1]
-            ,
+                maxChildSize: 1,
+                expand: true,
+                snapSizes: [0.5,1],
                 builder: (BuildContext context, ScrollController scrollController){
               return Container(
                 height: 300.h,
@@ -90,7 +105,7 @@ class _AllMedicinesState extends State<AllMedicines> {
                                       right: 0,
                                       child: ClipRRect(
                                       borderRadius: BorderRadius.circular(10),
-                                      child: Image.network('https://picsum.photos/250?image=$index',width: 100.w,height: 80.h,
+                                      child: Image.network('https://picsum.photos/seed/medicine$index/250/250',width: 100.w,height: 80.h,
                                         fit: BoxFit.cover,
                                         loadingBuilder: (context, child, loadingProgress) {
                                           if (loadingProgress == null) return child;

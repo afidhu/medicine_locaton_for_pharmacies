@@ -17,8 +17,10 @@ class _PharmacyMedicinesCardState extends State<PharmacyMedicinesCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
+        height: 100.h,
+        width: double.infinity,
         padding: EdgeInsets.all(1.sp),
-        margin: EdgeInsets.only(top: 7.sp,bottom: 1.sp,left: 5.sp,right: 5.sp ),
+        margin: EdgeInsets.only(top: 7.sp,bottom: 3.sp,left: 5.sp,right: 5.sp ),
         decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(20),
@@ -51,7 +53,7 @@ class _PharmacyMedicinesCardState extends State<PharmacyMedicinesCard> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text('Pain Relief'),
-                  CupertinoButton(onPressed: (){},color: Colors.grey[300],child: Icon(Icons.edit,color: Colors.blue,),padding: EdgeInsets.all(0),)
+                  CupertinoButton(onPressed: (){},color: Colors.grey[300],padding: EdgeInsets.all(0),child: Icon(Icons.edit,color: Colors.blue,),)
                 ],
               ),
               Text('Price : \$500',style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12.sp ),)
