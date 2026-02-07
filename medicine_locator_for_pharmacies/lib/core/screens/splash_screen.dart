@@ -37,7 +37,7 @@ class SplashScreen extends StatelessWidget {
                 SizedBox(height: 20.h,),
 
                 OutlinedButton(
-                  onPressed: (){Get.to(()=>HomeScreen());}, child: Text('Patient',style: TextStyle(color: Colors.white)  ,),
+                  onPressed: (){Get.to(()=>HomeScreen());}, child: Text('Patient',style: TextStyle(color: Colors.white,fontSize: 20.sp)  ,),
                   style: OutlinedButton.styleFrom(
                     side: BorderSide(color: Colors.blue),
                     backgroundColor: Colors.blue
@@ -46,14 +46,14 @@ class SplashScreen extends StatelessWidget {
                 OutlinedButton(onPressed: (){Get.to(()=>LoginScreen());}, style: OutlinedButton.styleFrom(
                     side: BorderSide(color: Colors.blue),
                     backgroundColor: Colors.blue
-                ), child: Text('Pharmacist',style: TextStyle(color: Colors.white))),
+                ), child: Text('Pharmacist',style: TextStyle(color: Colors.white,fontSize: 20.sp))),
                 OutlinedButton(
                   style: OutlinedButton.styleFrom(
                       side: BorderSide(color: Colors.blue),
                       backgroundColor: Colors.purpleAccent
                   )
                 ,
-                    onPressed: (){Get.to(()=>AdminHomeScreen());}, child: Text('Admin')),
+                    onPressed: (){Get.to(()=>AdminHomeScreen());}, child: Text('Admin',style: TextStyle(color: Colors.white,fontSize: 20.sp))),
               ],
             ),
           )

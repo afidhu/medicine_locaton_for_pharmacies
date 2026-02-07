@@ -2,10 +2,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:medicine_locator_for_pharmacies/core/screens/custom_ui/counts_cards.dart';
 import 'package:medicine_locator_for_pharmacies/core/screens/custom_ui/pharmacy_admin_top_parts.dart';
 
 import '../../../../core/screens/custom_ui/container_card.dart';
+import '../../../medicines/presentation/screens/all_medicines.dart';
 import 'custom_ui/input_search_card.dart';
 import 'custom_ui/pharmacy_medicine_card.dart';
 import 'custom_ui/pharmacy_top_cards.dart';
@@ -70,7 +73,9 @@ class _PharmacistHomeState extends State<PharmacistHome> {
         ])
       ),
       child: FloatingActionButton(
-      onPressed: (){},
+      onPressed: (){
+        Get.to(()=>AllMedicines());
+      },
       // splashColor: Colors.blue,
       // backgroundColor: Colors.blue,
           backgroundColor: Color(0x00000001),
