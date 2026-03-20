@@ -148,3 +148,6 @@ Check out the UI/UX design here: **[Figma Link](https://dark-tacit-86143187.figm
 I'm sorry to say that temporary the development activities has pause after 2wk later will be resumed again, honestly     
 
 after UE i will continues where we are ended
+
+
+welcome 🙏 back in development activities 
