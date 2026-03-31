@@ -1,0 +1,96 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  // provider = "prisma-client"
+  provider = "prisma-client-js"
+  // output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+
+enum PharmacyApprovedStatus {
+  pending
+  accepted
+  rejected
+  approved
+}
+
+model Medicines {
+  id                Int                @id @default(autoincrement())
+  name              String
+  type              String
+  price             String
+  imageUrl             String?
+  description       String
+  pharmacyMedicines MedicineForPharmacy[]
+  createdAt         DateTime           @default(now())
+  updatedAt         DateTime           @updatedAt
+}
+
+
+model Pharmacy {
+  id                Int                @id @default(autoincrement())
+  name              String
+  address           String
+  latitude          String?
+  longitude         String?
+  phone             String
+  email             String             @unique
+  password          String
+  license           String
+  openTime          String
+  closeTime         String
+  image             String?
+  status            PharmacyApprovedStatus @default(pending)
+
+  requests          PharmaciesRequest[]
+  pharmacyMedicines MedicineForPharmacy[]
+  createdAt         DateTime           @default(now())
+  updatedAt         DateTime           @updatedAt
+}
+
+model MedicineForPharmacy {
+  id                Int                @id @default(autoincrement())
+
+  distances         String?
+  rates             Int                @default(0)
+  reviews           Int                @default(0)
+  availability      Boolean            @default(true)
+  medicineId        Int
+  medicine          Medicines          @relation(fields: [medicineId], references: [id])
+  pharmacyId        Int
+  pharmacy          Pharmacy           @relation(fields: [pharmacyId], references: [id])
+  createdAt         DateTime           @default(now())
+  updatedAt         DateTime           @updatedAt
+}
+
+
+model User {
+  id                Int                @id @default(autoincrement())
+  name              String
+  email             String             @unique
+  phone             String
+  password          String
+  image             String?
+  createdAt         DateTime           @default(now())
+  updatedAt         DateTime           @updatedAt
+}
+
+model PharmaciesRequest {
+  id                Int                @id @default(autoincrement())
+  pharmacyId        Int
+  pharmacy          Pharmacy           @relation(fields: [pharmacyId], references: [id])
+  message           String
+  requestDate       DateTime           @default(now())
+  createdAt         DateTime           @default(now())
+  updatedAt         DateTime           @updatedAt
+}
+
+
