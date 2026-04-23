@@ -6,12 +6,14 @@ import e from "express";
 
 
 
-export const addPharmacy = (req:Request, res:Response) =>{
+export const addPharmacy = async(req:Request, res:Response) =>{
+
+    try {
+
 
     const { name, address, latitude, longitude, phone, email, password, license, openTime, closeTime, image, status } = req.body;
-    try {
         
-    const results = prisma.pharmacy.create({
+    const results = await prisma.pharmacy.create({
         data:{
             name: name,
             address: address,
@@ -27,7 +29,11 @@ export const addPharmacy = (req:Request, res:Response) =>{
             status: status
         }
     })
-    return res.status(201).json(results);
+   if(results){
+    return res.status(201).json({ message: "Pharmacy added successfully", pharmacy: results });
+   }else{
+    return res.status(400).json({ message: "Failed to add pharmacy" }); 
+   }
 
     } catch (error: any) {
         console.error("Error adding pharmacy:", error);
@@ -38,7 +44,7 @@ export const addPharmacy = (req:Request, res:Response) =>{
 }
 
 
-export const addMedicineForPharmacy = (req:Request, res:Response) =>{
+export const addMedicineForPharmacy = async(req:Request, res:Response) =>{
 
     const {distances,rates,reviews,availability,medicineId,pharmacyId } = req.body;
     try {
@@ -68,3 +74,13 @@ export const addMedicineForPharmacy = (req:Request, res:Response) =>{
 
 
 
+export const getPharmacy = async(req:Request, res:Response) => {
+    try {
+        const pharmacies = await prisma.pharmacy.findMany();
+        return res.status(200).json(pharmacies);
+    } catch (error: any) {
+        console.error("Error fetching pharmacies:", error);
+        return res.status(500).json({ error: error.message, message:"An error occurred while fetching the pharmacies." });
+        
+    }
+}

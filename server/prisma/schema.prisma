@@ -49,7 +49,6 @@ model Pharmacy {
   closeTime         String
   image             String?
   status            PharmacyApprovedStatus @default(pending)
-
   requests          PharmaciesRequest[]
   pharmacyMedicines MedicineForPharmacy[]
   createdAt         DateTime           @default(now())

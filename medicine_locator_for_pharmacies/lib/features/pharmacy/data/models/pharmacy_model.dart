@@ -1,3 +1,5 @@
+import '../../domain/entities/pharmcy_entities.dart';
+
 /// id : 1
 /// name : "AfyaCare Pharmacy"
 /// address : "Mikocheni B, Dar es Salaam, Tanzania"
@@ -14,75 +16,59 @@
 /// createdAt : "2026-04-23T20:37:44.905Z"
 /// updatedAt : "2026-04-23T20:37:44.905Z"
 
-class PharmacyModel {
-  PharmacyModel({
-      this.id, 
-      this.name, 
-      this.address, 
-      this.latitude, 
-      this.longitude, 
-      this.phone, 
-      this.email, 
-      this.password, 
-      this.license, 
-      this.openTime, 
-      this.closeTime, 
-      this.image, 
-      this.status, 
-      this.createdAt, 
-      this.updatedAt,});
+class PharmacyModel extends PharmacyEntity {
+  const PharmacyModel({
+     super.id,
+     super.name,
+     super.address,
+     super.latitude,
+     super.longitude,
+     super.phone,
+     super.email,
+     super.password,
+     super.license,
+     super.openTime,
+     super.closeTime,
+     super.image,
+     super.status,
+     super.createdAt,
+     super.updatedAt,});
 
-  PharmacyModel.fromJson(dynamic json) {
-    id = json['id'];
-    name = json['name'];
-    address = json['address'];
-    latitude = json['latitude'];
-    longitude = json['longitude'];
-    phone = json['phone'];
-    email = json['email'];
-    password = json['password'];
-    license = json['license'];
-    openTime = json['openTime'];
-    closeTime = json['closeTime'];
-    image = json['image'];
-    status = json['status'];
-    createdAt = json['createdAt'];
-    updatedAt = json['updatedAt'];
+  factory PharmacyModel.fromJson(dynamic json) {
+    return PharmacyModel(
+      id: json['id'],
+      name: json['name'],
+      address: json['address'],
+      latitude: json['latitude'],
+      longitude: json['longitude'],
+      phone: json['phone'],
+      email: json['email'],
+      password: json['password'],
+      license: json['license'],
+      openTime: json['openTime'],
+      closeTime: json['closeTime'],
+      image: json['image'],
+      status: json['status'],
+    );
   }
-  num? id;
-  String? name;
-  String? address;
-  String? latitude;
-  String? longitude;
-  String? phone;
-  String? email;
-  String? password;
-  String? license;
-  String? openTime;
-  String? closeTime;
-  String? image;
-  String? status;
-  String? createdAt;
-  String? updatedAt;
 
   Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
-    map['id'] = id;
-    map['name'] = name;
-    map['address'] = address;
-    map['latitude'] = latitude;
-    map['longitude'] = longitude;
-    map['phone'] = phone;
-    map['email'] = email;
-    map['password'] = password;
-    map['license'] = license;
-    map['openTime'] = openTime;
-    map['closeTime'] = closeTime;
-    map['image'] = image;
-    map['status'] = status;
-    map['createdAt'] = createdAt;
-    map['updatedAt'] = updatedAt;
-    return map;
+
+    return{
+      'id': id,
+      'name': name,
+      'address': address,
+      'latitude': latitude,
+      'longitude': longitude,
+      'phone': phone,
+      'email': email,
+      'password': password,
+      'license': license,
+      'openTime': openTime,
+      'closeTime': closeTime,
+      'image': image,
+      'status': status
+    };
   }
 
 }
