@@ -1,6 +1,7 @@
 import type { Request, Response } from "express";
 import { prisma } from "../index.ts";
-import e from "express";
+
+
 
 
 
@@ -18,7 +19,11 @@ export const addMedicine = (req:Request, res:Response) =>{
             type: "tablet" // You can replace this with the actual type of medicine or handle it as needed
         }
     })
-    return res.status(201).json(results);
+    if(results){
+        return res.status(201).json({ message: "Medicine added successfully", medicine: results });
+    }else{
+        return res.status(400).json({ message: "Failed to add medicine" }); 
+    }
 
     } catch (error: any) {
         console.error("Error adding medicine:", error);
@@ -27,4 +32,17 @@ export const addMedicine = (req:Request, res:Response) =>{
     }
     // Here you would typically add the medicine to your database
 
+}
+
+
+export const getMedicine = async(req:Request, res:Response) => {
+    console.log('object')
+    try {
+        const medicines = await prisma.medicines.findMany();
+        return res.status(200).json(medicines);
+    } catch (error: any) {
+        console.error("Error fetching medicines:", error);
+        return res.status(500).json({ error: error.message, message:"An error occurred while fetching the medicines." });
+        
+    }
 }

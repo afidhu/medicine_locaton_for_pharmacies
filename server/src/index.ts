@@ -11,13 +11,7 @@ import { PrismaClient } from '@prisma/client';
 import medicine_routers from './routes/medicine_routers.ts';
 const connectionString = `${process.env.DATABASE_URL}`;
 const adapter = new PrismaPg({ connectionString });
-const prisma = new PrismaClient({ adapter });
-
-export { prisma };
-app.get('/', (req, res) => {
-  res.send('Hello World!');
-});
-
+export const prisma = new PrismaClient({ adapter });
 
 app.use(express.json());
 
