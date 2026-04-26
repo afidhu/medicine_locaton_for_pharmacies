@@ -9,7 +9,7 @@ import '../models/medicines_model.dart';
 class RepoMedicinesImpl  extends RepoMedicines{
 
   final MedicineDataSources medicineDataSources;
-  RepoMedicinesImpl({required this.medicineDataSources});
+  RepoMedicinesImpl( this.medicineDataSources);
 
 
   @override
@@ -27,8 +27,7 @@ class RepoMedicinesImpl  extends RepoMedicines{
   Future<List<MedicinesEntity>> getMedicines()  async{
     final response = await medicineDataSources.getAllMedicine();
     if(response.statusCode ==200){
-      final dataJson = response.data;
-
+       List<dynamic> dataJson = response.data;
       return dataJson.map((json)=>MedicinesModel.fromJson(json)).toList();
     }else{
       throw Exception('Failed to fetch medicines');

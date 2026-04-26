@@ -15,7 +15,8 @@ if (localPropertiesFile.exists()) {
     }
 }
 
-val googleMapsApiKey: String = localProperties["GOOGLE_MAPS_API_KEY"] as String
+val googleMapsApiKey = localProperties["GOOGLE_MAPS_API_KEY"] as? String
+    ?: throw GradleException("GOOGLE_MAPS_API_KEY is missing in localProperties")
 android {
     namespace = "com.example.medicine_locator_for_pharmacies"
     compileSdk = flutter.compileSdkVersion

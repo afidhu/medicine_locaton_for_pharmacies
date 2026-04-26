@@ -14,7 +14,7 @@ class PharmacyRepoImpl implements PharmacyRepos {
 
   PharmacyRepoImpl(this.pharmacyRemoteDataSource);
   @override
-  Future<PharmacyEntity> addAllPharmacy(pharmacy) async{
+  Future<PharmacyEntity> addAllPharmacy( PharmacyEntity pharmacy) async{
 
     try {
       final response = await pharmacyRemoteDataSource.addPharmacies(pharmacy);

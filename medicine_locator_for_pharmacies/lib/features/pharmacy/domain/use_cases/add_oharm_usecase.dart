@@ -3,14 +3,15 @@
 
 import '../../data/repo_impl/pharmacy_repo_impl.dart';
 import '../entities/pharmcy_entities.dart';
+import '../repositories/pharmacy_repos.dart';
 
 class AddPharmacyUseCase {
 
-  final PharmacyRepoImpl pharmacyRepoImpl;
+  final PharmacyRepos _pharmacyRepos;
 
-  AddPharmacyUseCase(this.pharmacyRepoImpl);
+  AddPharmacyUseCase(this._pharmacyRepos);
 
-  Future<PharmacyEntity> addPharmacyCase( pharmacy){
-     return pharmacyRepoImpl.addAllPharmacy(pharmacy);
+  Future<PharmacyEntity> addPharmacyCase(PharmacyEntity pharmacy){
+     return _pharmacyRepos.addAllPharmacy(pharmacy);
   }
 }

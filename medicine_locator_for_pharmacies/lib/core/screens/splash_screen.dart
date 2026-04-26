@@ -1,18 +1,22 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
 import '../../features/admin/presentation/screens/admin_home_screen.dart';
 import '../../features/auths/presentation/screens/login_screen.dart';
+import '../../features/medicines/presentation/bloc/medicines_bloc.dart';
 import 'home_screen.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
 
+
   @override
   Widget build(BuildContext context) {
+    context.read<MedicinesBloc>().add(GetMedicine());
     return Scaffold(
       body: SafeArea(child:
           Center(

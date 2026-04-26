@@ -14,23 +14,40 @@ class PharmacyBloc extends Bloc<PharmacyEvent, PharmacyState> {
   final AddPharmacyUseCase addPharmacyUseCase;
   final GetPharmacyCase getPharmacyCase;
 
-  PharmacyBloc({required this.addPharmacyUseCase, required this.getPharmacyCase}) : super(PharmacyInitial()) {
+  PharmacyBloc( this.addPharmacyUseCase, this.getPharmacyCase) : super(PharmacyInitial()) {
 
     on<AddPharmacyEvent>(_addPharmacyEvent);
-    on<PharmacyEvent>(_getPharmacyEvent);
+    on<GetPharmacyEvent>(_getPharmacyEvent);
   }
 
 
-  FutureOr<void> _addPharmacyEvent(PharmacyEvent event, Emitter<PharmacyState> emit) async{
+
+  FutureOr<void> _addPharmacyEvent(AddPharmacyEvent event, Emitter<PharmacyState> emit) async{
     try{
-      final  pharmacy = await addPharmacyUseCase.addPharmacyCase(event);
+      PharmacyEntity  pharmacyEntity = PharmacyEntity(
+        address: event.address,
+      name: event.name,
+      latitude: event.latitude,
+      longitude: event.longitude,
+      phone: event.phone,
+      email: event.email,
+      password: event.password,
+      license: event.license,
+      openTime: event.openTime,
+      closeTime: event.closeTime,
+      image: event.image,
+      status: event.status,
+      );
+      final  pharmacy = await addPharmacyUseCase.addPharmacyCase(pharmacyEntity);
       emit(PharmacyAdded(pharmacy));
     } catch(e){
       emit(PharmacyLoadedError('Error adding pharmacy: ${e.toString()}'));
     }
   }
 
-  FutureOr<void> _getPharmacyEvent(PharmacyEvent event, Emitter<PharmacyState> emit)  async{
+
+
+  FutureOr<void> _getPharmacyEvent(GetPharmacyEvent event, Emitter<PharmacyState> emit) async{
     try{
       final  pharmacy = await getPharmacyCase.getPharmacyCase();
       emit(PharmacyLoaded(pharmacy));
