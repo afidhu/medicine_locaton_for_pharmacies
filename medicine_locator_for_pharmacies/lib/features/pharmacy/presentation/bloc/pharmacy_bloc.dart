@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:meta/meta.dart';
 
 import '../../domain/entities/pharmcy_entities.dart';
@@ -49,9 +50,12 @@ class PharmacyBloc extends Bloc<PharmacyEvent, PharmacyState> {
 
   FutureOr<void> _getPharmacyEvent(GetPharmacyEvent event, Emitter<PharmacyState> emit) async{
     try{
+      debugPrint('get pharmacy');
       final  pharmacy = await getPharmacyCase.getPharmacyCase();
+      debugPrint('pharm ${pharmacy.toString()}');
       emit(PharmacyLoaded(pharmacy));
     } catch(e){
+      debugPrint('error ${e.toString()}');
       emit(PharmacyLoadedError('Error adding pharmacy: ${e.toString()}'));
     }
   }

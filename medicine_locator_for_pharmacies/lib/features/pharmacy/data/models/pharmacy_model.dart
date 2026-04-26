@@ -72,3 +72,5 @@ class PharmacyModel extends PharmacyEntity {
   }
 
 }
+
+

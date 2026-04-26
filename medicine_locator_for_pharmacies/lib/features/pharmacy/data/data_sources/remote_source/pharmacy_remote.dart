@@ -16,6 +16,8 @@ class PharmacyRemoteDataSource{
       rethrow;
     }
   }
+
+
     Future<Response> addPharmacies(pharm){
     try{
       return dioClient.dio.post(ApiProvider.addPharmacy,data: pharm.toJson());
@@ -24,6 +26,22 @@ class PharmacyRemoteDataSource{
     }
   }
 
+
+  Future<Response> getMedicineForPharmacies(pharm){
+    try{
+      return dioClient.dio.get(ApiProvider.getMedicineForPharmacy);
+    } catch(e){
+      rethrow;
+    }
+  }
+
+  Future<Response> addMedicineForPharmacies(pharmMedicine){
+    try{
+      return dioClient.dio.post(ApiProvider.addMedicineForPharmacy,data: pharmMedicine.toJson());
+    } catch(e){
+      rethrow;
+    }
+  }
 
 }
 

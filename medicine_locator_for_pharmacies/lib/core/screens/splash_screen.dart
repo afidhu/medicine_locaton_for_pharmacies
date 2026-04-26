@@ -8,6 +8,7 @@ import 'package:get/get_core/src/get_main.dart';
 import '../../features/admin/presentation/screens/admin_home_screen.dart';
 import '../../features/auths/presentation/screens/login_screen.dart';
 import '../../features/medicines/presentation/bloc/medicines_bloc.dart';
+import '../../features/pharmacy/presentation/bloc/pharmacy_bloc.dart';
 import 'home_screen.dart';
 
 class SplashScreen extends StatelessWidget {
@@ -16,7 +17,8 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    context.read<MedicinesBloc>().add(GetMedicine());
+    // context.read<MedicinesBloc>().add(GetMedicine());
+    context.read<PharmacyBloc>().add(GetPharmacyEvent());
     return Scaffold(
       body: SafeArea(child:
           Center(
