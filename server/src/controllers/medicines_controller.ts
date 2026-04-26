@@ -38,8 +38,6 @@ export const addMedicine = (req:Request, res:Response) =>{
 export const getMedicine = async(req:Request, res:Response) => {
     console.log('object')
     try {
-        const medicines = await prisma.medicines.findMany();
-        return res.status(200).json(medicines);
     } catch (error: any) {
         console.error("Error fetching medicines:", error);
         return res.status(500).json({ error: error.message, message:"An error occurred while fetching the medicines." });
