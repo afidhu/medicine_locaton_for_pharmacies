@@ -10,4 +10,7 @@ class ApiProvider {
 
   static const String getMedicineForPharmacy = '$baseUrl/pharmacy/medicine-pharmacy';
   static const String addMedicineForPharmacy = '$baseUrl/pharmacy/medicine-pharmacy';
+
+  static const String addPharmacyRequest ='$baseUrl/pharmacy-requests/add';
+  static const String allPharmaciesRequest = '$baseUrl/pharmacy-requests/get';
 }
