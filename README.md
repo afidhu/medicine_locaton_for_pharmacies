@@ -150,4 +150,5 @@ I'm sorry to say that temporary the development activities has pause after 2wk l
 after UE i will continues where we are ended
 
 
-welcome 🙏 back in development activities 
+welcome 🙏 back in development activities
+now has stopped again 
