@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "@prisma/adapter-pg": "^7.3.0",
-    "@prisma/client": "^7.4.1",
+    "@prisma/client": "^7.8.0",
     "express": "^5.2.1",
     "pg": "^8.18.0"
   },
@@ -10,8 +10,8 @@
     "@types/node": "^25.2.1",
     "@types/pg": "^8.16.0",
     "dotenv": "^17.2.4",
-    "nodemon": "^3.1.11",
-    "prisma": "^7.4.1",
+    "nodemon": "^3.1.14",
+    "prisma": "^7.8.0",
     "ts-node": "^10.9.2",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3"
@@ -22,7 +22,7 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon src/index.ts"
   },
   "keywords": [],
   "author": "",
