@@ -3,10 +3,12 @@
 import 'dart:ffi';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:medicine_locator_for_pharmacies/core/screens/custom_ui/counts_cards.dart';
 
 import '../../../../../core/screens/custom_ui/container_card.dart';
+import '../../cubit/medicines_cubit.dart';
 import '../../widgets/text_input_search.dart';
 class MedicineUpStack extends StatelessWidget {
 
@@ -16,6 +18,7 @@ class MedicineUpStack extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return SliverPadding(padding: EdgeInsets.all(0.8.sp),
       sliver:SliverToBoxAdapter(
           child:  SizedBox(
@@ -57,6 +60,7 @@ class MedicineUpStack extends StatelessWidget {
                     right: 0,
                     child:  TextInputSearch()
                 ),
+
 
                 CountsCards(icon: Icons.local_hospital_outlined, counts: 402, text: 'Pharmancies \n Available', icon2: Icons.medical_information, counts2: 2400, text2: 'Medicines \n Available',positionedTop: 130, )
               ],

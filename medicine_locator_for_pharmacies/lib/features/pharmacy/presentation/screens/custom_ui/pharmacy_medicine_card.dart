@@ -3,7 +3,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+
+
+
 class PharmacyMedicinesCard extends StatefulWidget {
+  // final String medicineName ;
+  // final String medicinePrice;
+  // final String medicineDescription;
+
   const PharmacyMedicinesCard({
     super.key,
   });

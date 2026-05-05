@@ -17,8 +17,6 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // context.read<MedicinesBloc>().add(GetMedicine());
-    context.read<PharmacyBloc>().add(GetPharmacyEvent());
     return Scaffold(
       body: SafeArea(child:
           Center(

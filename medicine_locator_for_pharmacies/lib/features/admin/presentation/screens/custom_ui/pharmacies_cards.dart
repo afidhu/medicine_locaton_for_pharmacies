@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../pharmacy/domain/entities/pharmcy_entities.dart';
+
 class PharmaciesCards extends StatelessWidget {
-  const PharmaciesCards({super.key});
+final PharmacyEntity  pharmacy;
+
+  const PharmaciesCards({super.key, required this.pharmacy});
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +43,7 @@ class PharmaciesCards extends StatelessWidget {
                       child:Icon(Icons.store_mall_directory_outlined,color: Colors.white,size: 30.sp)
                   )
               ),
-              title: Text('MediCare Plus Pharmacy',style: TextStyle(fontWeight: FontWeight.bold)),
+              title: Text(pharmacy.name!,style: TextStyle(fontWeight: FontWeight.bold)),
               subtitle: Text('Owner: Dr. John Smith'),
             ),
 
@@ -53,14 +57,14 @@ class PharmaciesCards extends StatelessWidget {
             Row(
               children: [
                 Icon(Icons.call),
-                Text('1(212) 555-0100')
+                Text('(+255) ${pharmacy.phone}')
 
               ],
             ),
             Row(
               children: [
                 Icon(Icons.email_outlined),
-                Text('contact@medicareplus.com')
+                Text(pharmacy.email!)
 
               ],
             ),
@@ -70,7 +74,7 @@ class PharmaciesCards extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text('License Number:'),
-                Text('PHR-2024-001')
+                Text(pharmacy.license!)
 
               ],
             ),
@@ -78,7 +82,7 @@ class PharmaciesCards extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text('Submitted:'),
-                Text('1/20/2024')
+                Text('${pharmacy.updatedAt}')
               ],
             ),
 

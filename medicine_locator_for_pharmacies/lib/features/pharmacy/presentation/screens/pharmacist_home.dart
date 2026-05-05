@@ -1,6 +1,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -9,6 +10,7 @@ import 'package:medicine_locator_for_pharmacies/core/screens/custom_ui/pharmacy_
 
 import '../../../../core/screens/custom_ui/container_card.dart';
 import '../../../medicines/presentation/screens/all_medicines.dart';
+import '../bloc/pharmacy_bloc.dart';
 import 'custom_ui/input_search_card.dart';
 import 'custom_ui/pharmacy_medicine_card.dart';
 import 'custom_ui/pharmacy_top_cards.dart';
@@ -21,6 +23,14 @@ class PharmacistHome extends StatefulWidget {
 }
 
 class _PharmacistHomeState extends State<PharmacistHome> {
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+    context.read<PharmacyBloc>().add(GetPharmacyEvent());
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,11 +59,31 @@ class _PharmacistHomeState extends State<PharmacistHome> {
                 )
                 ),
 
-              SliverList(delegate: SliverChildBuilderDelegate((context, index){
-                return PharmacyMedicinesCard();
+              SliverPadding(padding: EdgeInsets.all(3.8.sp),
+                sliver: BlocConsumer<PharmacyBloc,PharmacyState>(
+                    builder: (context, state){
+                      if(state is PharmacyInitial){
+                        return SliverToBoxAdapter(child: Center(child: CircularProgressIndicator(),));
+                      }
+                      if(state is PharmacyLoadedError){
+                        return SliverToBoxAdapter(child: Text(state.errorMessage));
+                      }
                 
-              },childCount: 10),
+                      if(state is PharmacyLoaded){
+                        var pharmacy = state.pharmacy;
+                        return SliverList(delegate: SliverChildBuilderDelegate((context, index){
+                          return PharmacyMedicinesCard();
+
+                        },childCount:pharmacy.length ),
+                        );
+                      }
+                      return SizedBox.shrink();
+                    },
+                    listener: (context,state){}
+                ),
               )
+
+
 
             ],
             

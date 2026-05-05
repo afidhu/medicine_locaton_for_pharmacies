@@ -14,6 +14,7 @@ import 'core/screens/home_screen.dart';
 import 'core/screens/splash_screen.dart';
 import 'features/medicines/domain/repositories/repo_medicines.dart';
 import 'features/medicines/presentation/bloc/medicines_bloc.dart';
+import 'features/medicines/presentation/cubit/medicines_cubit.dart';
 import 'features/pharmacy/domain/repositories/pharmacy_repos.dart';
 import 'features/pharmacy/domain/use_cases/Get_pharmacy_case.dart';
 import 'features/pharmacy/domain/use_cases/add_oharm_usecase.dart';
@@ -27,7 +28,9 @@ void main() {
 
       child: MultiBlocProvider(providers: [
         BlocProvider<MedicinesBloc>(create: (context)=>MedicinesBloc(GetMedicineUseCases(context.read<RepoMedicines>()), AddMedicineUseCases(context.read<RepoMedicines>()) )),
-        BlocProvider<PharmacyBloc>(create: (context)=>PharmacyBloc(AddPharmacyUseCase(context.read<PharmacyRepos>()), GetPharmacyCase(context.read<PharmacyRepos>()) ))
+        BlocProvider<PharmacyBloc>(create: (context)=>PharmacyBloc(AddPharmacyUseCase(context.read<PharmacyRepos>()), GetPharmacyCase(context.read<PharmacyRepos>()) )),
+
+        BlocProvider(create: (_)=>MedicinesCubit())
       ],
           child: ScreenUtilInit(
             designSize: const Size(249, 419),
