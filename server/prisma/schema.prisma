@@ -86,6 +86,7 @@ model PharmaciesRequest {
   pharmacyId        Int
   pharmacy          Pharmacy           @relation(fields: [pharmacyId], references: [id])
   message           String
+  isApproved        Boolean            @default(false)
   requestDate       DateTime           @default(now())
   createdAt         DateTime           @default(now())
   updatedAt         DateTime           @updatedAt
