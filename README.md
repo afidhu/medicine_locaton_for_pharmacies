@@ -156,3 +156,5 @@ now has stopped again
 wait for deployment 
 
 tomorrow will be good 👍 
+
+Now development activities has been resumed 
